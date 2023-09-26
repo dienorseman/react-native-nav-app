@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export const ThirdScreen = () => {
+export const SettingsScreen = () => {
   return (
     <View>
-        <Text>ThridScreen</Text>
+        <Text>Settings</Text>
     </View>
   );
 };
