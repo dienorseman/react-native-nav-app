@@ -1,24 +1,17 @@
-import React, { useEffect } from 'react';
-import { View, Text, Button } from 'react-native';
-import { DrawerScreenProps } from '@react-navigation/drawer';
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 
 import { styles } from '../../theme/appTheme';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParams } from '../../../navigator/StackNavigator';
 
 
-interface Props extends DrawerScreenProps<any, any> {
-
-}
+interface Props extends StackScreenProps<RootStackParams, 'Main'> { }
 
 
 export const MainScreen = ({ navigation }: Props) => {
 
-    useEffect(() => {
-        navigation.setOptions({
-            title: 'Hello World',
-            headerLeft: () => <CustomButton navigation={navigation} />,
-        });
-    },);
 
     return (
         <View style={styles.globalMargin}>
@@ -28,8 +21,8 @@ export const MainScreen = ({ navigation }: Props) => {
                 onPress={() => navigation.navigate('Second')}
             />
 
-            <Text style={{ marginVertical: 20, fontSize: 20 }}>Navigation with params</Text>
-            <View style={{ gap: 20, justifyContent: 'space-between' }}>
+            <Text style={stylesLocal.title}>Navigation with params</Text>
+            <View style={stylesLocal.buttonContainer}>
                 <Button
                     title="Go to Pedro"
                     onPress={() =>
@@ -53,13 +46,9 @@ export const MainScreen = ({ navigation }: Props) => {
     );
 };
 
-const CustomButton = ({ navigation }: Props) => {
 
-    return (
-        <Button
-            title="Menu"
-            onPress={() => navigation.toggleDrawer()}
-        />
-    );
-};
-
+const stylesLocal = StyleSheet.create({
+    buttonContainer:
+        { gap: 20, justifyContent: 'space-between' },
+    title: { marginVertical: 20, fontSize: 20 },
+});

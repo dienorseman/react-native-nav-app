@@ -14,7 +14,14 @@ const Stack = createNativeStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false,
+                contentStyle: {
+                    backgroundColor: 'white',
+                },
+            }}
+        >
             <Stack.Screen
                 name="Main"
                 component={MainScreen}

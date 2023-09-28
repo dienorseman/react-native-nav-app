@@ -1,4 +1,6 @@
-import React from 'react';
+
+
+import React, { useEffect } from 'react';
 import { useWindowDimensions, Text, View, Image, TouchableOpacity } from 'react-native';
 import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -11,6 +13,10 @@ const Drawer = createDrawerNavigator();
 
 export const LateralNavigator = () => {
   const { width } = useWindowDimensions();
+  useEffect(() => {
+    console.log(width);
+
+  }, [width]);
   return (
     <Drawer.Navigator
       screenOptions={{
